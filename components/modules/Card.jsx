@@ -9,6 +9,7 @@ function Card(props) {
     return (
         <div className={styles.container}>
             <img src={`/images/${id}.jpeg`} alt={name} />
+
             <div className={styles.details}>
                 <h4>{name}</h4>
                 <div>
@@ -16,6 +17,7 @@ function Card(props) {
                     {details[0].Cuisine}
                 </div>
             </div>
+
             <div className={styles.price}>
                 <Dollar />
                 {discount ? (
@@ -27,6 +29,7 @@ function Card(props) {
                 )}
                 {discount ? <div className={styles.badge}>{discount}%</div> : null}
             </div>
+
             <Link href={`/menu/${id}`}>See Details</Link>
         </div>
     );
