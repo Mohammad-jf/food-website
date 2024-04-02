@@ -1,13 +1,13 @@
+import DetailsPage from "@/components/templates/DetailsPage";
+
+
+
 
 const FoodDetail = ({ data }) => {
-    return (
-        <div>{data.id}</div>
-    )
+    return <DetailsPage {...data} />;
 }
 
 export default FoodDetail
-
-
 
 
 
