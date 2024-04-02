@@ -1,8 +1,6 @@
 import DetailsPage from "@/components/templates/DetailsPage";
 
 
-
-
 const FoodDetail = ({ data }) => {
     return <DetailsPage {...data} />;
 }
@@ -23,6 +21,7 @@ export async function getStaticPaths() {
         fallback: 'blocking',
     }
 }
+
 
 export async function getStaticProps(context) {
     const { params: { foodId } } = context;
