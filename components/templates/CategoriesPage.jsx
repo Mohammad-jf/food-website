@@ -1,7 +1,7 @@
 
 import { useRouter } from 'next/router'
 import styles from './categoriesPage.module.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Card from '../modules/Card';
 
 
@@ -15,6 +15,17 @@ const CategoriesPage = ({ data }) => {
             [e.target.name]: e.target.value
         });
     }
+
+    useEffect(() => {
+        const { difficulty, time } = router.query;
+        if (query.difficulty !== difficulty || query.time !== time) {
+            setQuery({
+                difficulty,
+                time
+            })
+        }
+
+    }, [])
 
 
     const searchHandler = () => {
@@ -47,6 +58,7 @@ const CategoriesPage = ({ data }) => {
 
                 {/* card section */}
                 <div className={styles.cards}>
+                    {!data.length && <img src='/images/search.png' alt='search' />}
                     {data.map((item) => <Card key={item.id} {...item} />)}
                 </div>
 
